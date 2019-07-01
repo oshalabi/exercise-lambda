@@ -24,7 +24,7 @@ public class ListMaker {
 
         if (allPersons != null) {
             for (Person person : allPersons) {
-                if (isGender(person, Gender.MALE) && isAdult(person)) {
+                if (person.isOfGender(Gender.MALE) && person.isAdult(ADULT_AGE)) {
                     filteredMaleAdults.add(person);
                 }
             }
@@ -45,7 +45,7 @@ public class ListMaker {
 
         if (allPersons != null) {
             for (Person person : allPersons) {
-                if (isGender(person, Gender.FEMALE) && isAdult(person)) {
+                if (person.isOfGender(Gender.FEMALE) && person.isAdult(ADULT_AGE)) {
 
                     filteredFemmaleAdults.add(person);
                 }
@@ -54,16 +54,4 @@ public class ListMaker {
 
         return filteredFemmaleAdults;
     }
-
-    private boolean isGender(Person person, Gender gender) {
-        return gender.equals(person.getGender());
-    }
-
-    private boolean isAdult(Person person) {
-        LocalDate now = LocalDate.now();
-        Period age = Period.between(person.getBirthDate(), now);
-
-        return age.getYears() > ADULT_AGE;
-    }
-
 }

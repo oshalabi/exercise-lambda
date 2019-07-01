@@ -29,4 +29,16 @@ Creëer voor beide checks een methode de check uitvoert en roep deze aan vanuit 
 
 Run de Unittests om er zeker van te zijn dat alles nog werkt.
 
+### 3. Move Method
+Mogelijk heb je voorgaande twee methodes als private methodes toegevoegd aan de `ListMaker`. Dat is niet waar
+ze thuishoren. Verplaats beide methodes naar de klasse waar ze thuishoren.
+
+Run de Unittests om er zeker van te zijn dat alles nog werkt.
+
+### 4. Remove Duplicate Code/Extract Method
+Ondanks de verbeteringen bevatten `createMaleAdultList()` en `createFemaleAdultList()` nog
+steeds Duplicate Code. Creëer een private methode, genaamd `createAdultList(Gender gender)`, die als parameter de
+`Gender` krijgt waar een lijst voor gemaakt moet worden. Roep deze methode vervolgens vanuit
+`createMaleAdultList()` en `createFemaleAdultList()` aan.
+
 ## Deel 2
