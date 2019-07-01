@@ -21,7 +21,6 @@ public class Person {
         return age.getYears() > adultAge;
     }
 
-
     public String getLastName() {
         return lastName;
     }
