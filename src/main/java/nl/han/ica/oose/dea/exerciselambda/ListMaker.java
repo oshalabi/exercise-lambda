@@ -10,6 +10,8 @@ import java.util.List;
 
 public class ListMaker {
 
+    public static final int ADULT_AGE = 18;
+
     /**
      * Create a {@link List} containing only the Persons that are both male and adult.
      *
@@ -22,13 +24,8 @@ public class ListMaker {
 
         if (allPersons != null) {
             for (Person person : allPersons) {
-                if (person.getGender().equals(Gender.MALE)) {
-                    LocalDate now = LocalDate.now();
-                    Period age = Period.between(person.getBirthDate(), now);
-
-                    if (age.getYears() > 18) {
-                        filteredMaleAdults.add(person);
-                    }
+                if (isGender(person, Gender.MALE) && isAdult(person)) {
+                    filteredMaleAdults.add(person);
                 }
             }
         }
@@ -48,18 +45,25 @@ public class ListMaker {
 
         if (allPersons != null) {
             for (Person person : allPersons) {
-                if (person.getGender().equals(Gender.FEMALE)) {
-                    LocalDate now = LocalDate.now();
-                    Period age = Period.between(person.getBirthDate(), now);
+                if (isGender(person, Gender.FEMALE) && isAdult(person)) {
 
-                    if (age.getYears() > 18) {
-                        filteredFemmaleAdults.add(person);
-                    }
+                    filteredFemmaleAdults.add(person);
                 }
             }
         }
 
         return filteredFemmaleAdults;
+    }
+
+    private boolean isGender(Person person, Gender gender) {
+        return gender.equals(person.getGender());
+    }
+
+    private boolean isAdult(Person person) {
+        LocalDate now = LocalDate.now();
+        Period age = Period.between(person.getBirthDate(), now);
+
+        return age.getYears() > ADULT_AGE;
     }
 
 }
