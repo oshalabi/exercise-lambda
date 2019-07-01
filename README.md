@@ -15,16 +15,18 @@ Unittests niet meer zomaar geschikt is en deze dus aangepast zal moeten worden.
 ## Deel 1
 
 ### 1. Magic Numbers
-De huidige codebase bevat een Magic Number. Vervang deze door een constante. Run de Unittests 
-om er zeker van te zijn dat alles nog werkt.
+De huidige codebase bevat een Magic Number. Vervang deze door een constante. 
+
+Run de Unittests om er zeker van te zijn dat alles nog werkt.
 
 ### 2. Remove Duplicate Code/Extract Method
 Merk op dat de methodes `createMaleAdultList()` en `createFemaleAdultList()` duplicate code bevatten. Deze
 code bevat feitelijk twee checks:
 * Of een persoon ouder dan 18 is
-* Of een persoon een MALE/FEMALE is
+* Of een persoon MALE/FEMALE is
 
-Creëer voor beide checks een methode de checkuitvoert en roep deze aan vanuit `createMaleAdultList()` en `createFemaleAdultList()`.
+Creëer voor beide checks een methode de check uitvoert en roep deze aan vanuit `createMaleAdultList()` en `createFemaleAdultList()`.
 
+Run de Unittests om er zeker van te zijn dat alles nog werkt.
 
 ## Deel 2
