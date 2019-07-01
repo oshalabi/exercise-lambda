@@ -41,4 +41,33 @@ steeds Duplicate Code. Creëer een private methode, genaamd `createAdultList()`,
 `Gender` krijgt waar een lijst voor gemaakt moet worden. Roep deze methode vervolgens vanuit
 `createMaleAdultList()` en `createFemaleAdultList()` aan.
 
+Run de Unittests om er zeker van te zijn dat alles nog werkt.
+
+### 5. Gebruik van de forEach van de Stream API
+De nieuwe methode `createAdultList()` bevat een for-loop. Vervang deze door gebruik te maken van de `forEach`  
+van de Stream API. 
+
+Run de Unittests om er zeker van te zijn dat alles nog werkt.
+
+### 6. Lambda expressie voor ouder dan 18 check
+Merk op dat de twee checks:
+
+* Of een persoon ouder dan 18 is
+* Of een persoon MALE/FEMALE is
+
+nu in de body van de `forEach` staan. Dat kan netter worden opgelost. Juist voor deze situatie heeft de Stream API
+de `filter` methode. Deze methode heeft een `Predicate` als parameter, wat een Lambda expressie is die een `boolean` 
+retourneert. 
+
+In dit onderdeel gaan we een Lambda-expressie maken die checked of een `Person` ouder dan 18 is. Vervolgens halen we
+deze check uit de `forEach` en voegen we een `filter` toe die de Lambda-expressie als `Predicate` gebruikt.
+
+Creëer een `Predicate` die als volgt uitziet:
+
+``
+
+``
+
+
+
 ## Deel 2
