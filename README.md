@@ -37,7 +37,7 @@ Run de Unittests om er zeker van te zijn dat alles nog werkt.
 
 ### 4. Remove Duplicate Code/Extract Method
 Ondanks de verbeteringen bevatten `createMaleAdultList()` en `createFemaleAdultList()` nog
-steeds Duplicate Code. Creëer een private methode, genaamd `createAdultList(Gender gender)`, die als parameter de
+steeds Duplicate Code. Creëer een private methode, genaamd `createAdultList()`, die als tweede parameter de
 `Gender` krijgt waar een lijst voor gemaakt moet worden. Roep deze methode vervolgens vanuit
 `createMaleAdultList()` en `createFemaleAdultList()` aan.
 
