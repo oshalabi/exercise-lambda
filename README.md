@@ -49,25 +49,28 @@ van de Stream API.
 
 Run de Unittests om er zeker van te zijn dat alles nog werkt.
 
-### 6. Lambda expressie voor ouder dan 18 check
-Merk op dat de twee checks:
+### 6. Toevoegen Lambda expressies voor de ouder dan 18 check
+Merk op dat er twee checks:
 
 * Of een persoon ouder dan 18 is
-* Of een persoon MALE/FEMALE is
+* Of een persoon `MALE`/`FEMALE` is
 
-nu in de body van de `forEach` staan. Dat kan netter worden opgelost. Juist voor deze situatie heeft de Stream API
-de `filter` methode. Deze methode heeft een `Predicate` als parameter, wat een Lambda expressie is die een `boolean` 
+in de body van de `forEach` staan. Dat kan netter worden opgelost. Juist voor deze situatie heeft de Stream API
+de `filter` methode. Deze methode heeft een `Predicate` als parameter, wat een Lambda-expressie is die een `boolean` 
 retourneert. 
 
-In dit onderdeel gaan we een Lambda-expressie maken die checked of een `Person` ouder dan 18 is. Vervolgens halen we
-deze check uit de `forEach` en voegen we een `filter` toe die de Lambda-expressie als `Predicate` gebruikt.
+In dit onderdeel gaan we een Lambda-expressie maken die checked of een `Person` ouder dan 18 is. Deze passen we vervolgens
+toe als een filter, waarmee we de `forEach` vervangen. Functioneel is het dan nog niet compleet en ook de unittests zullen
+breken, maar dat wordt in de volgende oefening opgelost.
 
-Creëer een `Predicate` die als volgt uitziet:
+Creëer een `Predicate` die er als volgt uitziet:
 
 ``
-
+    Predicate<Person> isAdult = (person) -> {/* Hier volgt de implementatie van de check */}
 ``
 
-
+Deze `Predicate` is een gewone variabele en kun je toevoegen als `private` instantievariabele aan de `ListMaker` klasse.
+Verwijder de `forEach` en gebruikt de Stream API met een filter (en de `Predicate`) en uiteindelijk de `Collectors.toList()` 
+om een gefilterde lijst te maken die nu enkel `Person` bevat die ouder zijn dan 18.
 
 ## Deel 2

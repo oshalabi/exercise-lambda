@@ -5,10 +5,13 @@ import nl.han.ica.oose.dea.exerciselambda.person.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ListMaker {
 
     private static final int ADULT_AGE = 18;
+    private Predicate<Person> isAdult = (person) -> person.isAdult(ADULT_AGE);
 
     /**
      * Create a {@link List} containing only the Persons that are both male and adult.
@@ -31,18 +34,11 @@ public class ListMaker {
     }
 
     private List<Person> createAdultList(List<Person> allPersons, Gender gender) {
-        List<Person> filteredAdults = new ArrayList<>();
 
         if (allPersons == null) {
-            return filteredAdults;
+            return new ArrayList<>();
         }
 
-        allPersons.forEach(person -> {
-            if (person.isOfGender(gender) && person.isAdult(ADULT_AGE)) {
-                filteredAdults.add(person);
-            }
-        });
-
-        return filteredAdults;
+        return allPersons.stream().filter(isAdult).collect(Collectors.toList());
     }
 }
