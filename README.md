@@ -9,9 +9,6 @@ In het eerste deel van de oefening zal je een bestaande codebase moeten refactor
 gebruikt zal worden gemaakt van Lambda Expressies. Er zijn Unittests beschikbaar om te kunnen
 verifieren dat de code nog steeds correct werkt.
 
-In het tweede deel zal de code nog verder aangepast moeten worden, waarbij de huidige set 
-Unittests niet meer zomaar geschikt is en deze dus aangepast zal moeten worden.
-
 ## Deel 1
 
 ### 1. Magic Numbers
@@ -73,4 +70,10 @@ Deze `Predicate` is een gewone variabele en kun je toevoegen als `private` insta
 Verwijder de `forEach` en gebruikt de Stream API met een filter (en de `Predicate`) en uiteindelijk de `Collectors.toList()` 
 om een gefilterde lijst te maken die nu enkel `Person` bevat die ouder zijn dan 18.
 
-## Deel 2
+### 7. Toevoegen Lambda expressies voor de MALE/FEMALE check
+Gebruik de kennis van onderdeel 6 voor het maken van een `Predicate` die gebruikt kan worden om te bepalen of een `Person` `MALE`
+of `FEMALE` is. Merk op dat deze wat lastiger gaat zijn, aangezien je in Onderdeel 4 de `Gender` als parameter hebt toegevoegd en
+je daarmee eigenlijk twee parameters (de `Gender` en de `Person`) aan je `Predicate` wil meegeven. Dit staat de Interface van 
+`Predicate` echter niet toe.
+
+Er zijn dan ook verschillende manieren dit op te lossen. De enige eis hierbij is dat de Unittests blijven werken.
