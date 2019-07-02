@@ -20,13 +20,15 @@ public class ListMaker {
      */
     public List<Person> createMaleAdultList(List<Person> allPersons) {
 
+        if (allPersons == null) {
+            return new ArrayList<>();
+        }
+
         List<Person> filteredMaleAdults = new ArrayList<>();
 
-        if (allPersons != null) {
-            for (Person person : allPersons) {
-                if (isGender(person, Gender.MALE) && isAdult(person)) {
-                    filteredMaleAdults.add(person);
-                }
+        for (Person person : allPersons) {
+            if (isGender(person, Gender.MALE) && isAdult(person)) {
+                filteredMaleAdults.add(person);
             }
         }
 
@@ -41,14 +43,16 @@ public class ListMaker {
      */
     public List<Person> createFemaleAdultList(List<Person> allPersons) {
 
+        if (allPersons == null) {
+            return new ArrayList<>();
+        }
+
         List<Person> filteredFemmaleAdults = new ArrayList<>();
 
-        if (allPersons != null) {
-            for (Person person : allPersons) {
-                if (isGender(person, Gender.FEMALE) && isAdult(person)) {
+        for (Person person : allPersons) {
+            if (isGender(person, Gender.FEMALE) && isAdult(person)) {
 
-                    filteredFemmaleAdults.add(person);
-                }
+                filteredFemmaleAdults.add(person);
             }
         }
 
