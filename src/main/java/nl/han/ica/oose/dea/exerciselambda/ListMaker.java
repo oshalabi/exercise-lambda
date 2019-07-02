@@ -31,13 +31,16 @@ public class ListMaker {
     }
 
     private List<Person> createAdultList(List<Person> allPersons, Gender gender) {
+
+        if (allPersons == null) {
+            return new ArrayList<>();
+        }
+
         List<Person> filteredAdults = new ArrayList<>();
 
-        if (allPersons != null) {
-            for (Person person : allPersons) {
-                if (person.isOfGender(gender) && person.isAdult(ADULT_AGE)) {
-                    filteredAdults.add(person);
-                }
+        for (Person person : allPersons) {
+            if (person.isOfGender(gender) && person.isAdult(ADULT_AGE)) {
+                filteredAdults.add(person);
             }
         }
 
