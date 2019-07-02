@@ -18,18 +18,21 @@ public class ListMaker {
      */
     public List<Person> createMaleAdultList(List<Person> allPersons) {
 
+        if (allPersons == null) {
+            return new ArrayList<>();
+        }
+
         List<Person> filteredMaleAdults = new ArrayList<>();
 
-        if (allPersons != null) {
-            for (Person person : allPersons) {
-                if (person.getGender().equals(Gender.MALE)) {
-                    LocalDate now = LocalDate.now();
-                    Period age = Period.between(person.getBirthDate(), now);
+        for (Person person : allPersons) {
+            if (person.getGender().equals(Gender.MALE)) {
+                LocalDate now = LocalDate.now();
+                Period age = Period.between(person.getBirthDate(), now);
 
-                    if (age.getYears() > 18) {
-                        filteredMaleAdults.add(person);
-                    }
+                if (age.getYears() > 18) {
+                    filteredMaleAdults.add(person);
                 }
+
             }
         }
 
@@ -44,20 +47,23 @@ public class ListMaker {
      */
     public List<Person> createFemaleAdultList(List<Person> allPersons) {
 
+        if (allPersons == null) {
+            return new ArrayList<>();
+        }
+
         List<Person> filteredFemmaleAdults = new ArrayList<>();
 
-        if (allPersons != null) {
-            for (Person person : allPersons) {
-                if (person.getGender().equals(Gender.FEMALE)) {
-                    LocalDate now = LocalDate.now();
-                    Period age = Period.between(person.getBirthDate(), now);
+        for (Person person : allPersons) {
+            if (person.getGender().equals(Gender.FEMALE)) {
+                LocalDate now = LocalDate.now();
+                Period age = Period.between(person.getBirthDate(), now);
 
-                    if (age.getYears() > 18) {
-                        filteredFemmaleAdults.add(person);
-                    }
+                if (age.getYears() > 18) {
+                    filteredFemmaleAdults.add(person);
                 }
             }
         }
+
 
         return filteredFemmaleAdults;
     }
