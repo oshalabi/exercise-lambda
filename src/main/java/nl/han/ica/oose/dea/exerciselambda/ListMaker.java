@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class ListMaker {
 
     private static final int ADULT_AGE = 18;
+
     private Predicate<Person> isAdult = (person) -> person.isAdult(ADULT_AGE);
 
     /**
