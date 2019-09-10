@@ -51,7 +51,7 @@ public class ListMaker {
             return new ArrayList<>();
         }
 
-        List<Person> filteredFemmaleAdults = new ArrayList<>();
+        List<Person> filteredFemaleAdults = new ArrayList<>();
 
         for (Person person : allPersons) {
             if (person.getGender().equals(Gender.FEMALE)) {
@@ -59,13 +59,13 @@ public class ListMaker {
                 Period age = Period.between(person.getBirthDate(), now);
 
                 if (age.getYears() > 18) {
-                    filteredFemmaleAdults.add(person);
+                    filteredFemaleAdults.add(person);
                 }
             }
         }
 
 
-        return filteredFemmaleAdults;
+        return filteredFemaleAdults;
     }
 
 }
