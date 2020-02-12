@@ -1,10 +1,8 @@
 # Introductie
-
 Deze oefening is deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen. Onderwerp is het bekend raken met de Lambda-expressies.
 
 # Oefening
-
-In deze oefening refactor je bestaande code, waarbij je uiteindelijk ook functies omschrijft naar  Lambda Expressies om de code nog leesbaarder te maken. Run na elke refactoring de aanwezige unit tests om te verifieren dat de code nog correct werkt.
+In deze oefening refactor je bestaande code, waarbij je uiteindelijk ook functies omschrijft naar  Lambda Expressies om de code nog leesbaarder te maken. Run na elke refactoring de aanwezige unit tests om te verifieren dat de code nog correct werkt (en zo niet backtrace dan en fix het; gebruik van git versiebeheer kan dit vergemakkelijken).
 
 De oplossingen zijn als verschillende branches beschikbaar.
 
@@ -30,16 +28,12 @@ Mogelijk heb je voorgaande twee methodes als private methodes toegevoegd aan de 
 *Run de Unittests om er zeker van te zijn dat alles nog werkt.*
 
 ## 4 Remove Duplicate Code/Extract Method
-Ondanks de verbeteringen bevatten `createMaleAdultList()` en `createFemaleAdultList()` nog
-steeds duplicate code. Creëer een private methode, genaamd `createAdultList(List<Person> allPerson, Gender gender)`, die 
-als tweede parameter de `Gender` krijgt waarvoor deze een lijst moet maken. Roep deze methode vervolgens vanuit
-`createMaleAdultList()` en `createFemaleAdultList()` aan.
+Ondanks de verbeteringen bevatten `createMaleAdultList()` en `createFemaleAdultList()` nog steeds duplicate code. Creëer een private methode, genaamd `createAdultList(List<Person> allPerson, Gender gender)`, die als tweede parameter de `Gender` krijgt waarvoor deze een lijst moet maken. Roep deze methode vervolgens vanuit `createMaleAdultList()` en `createFemaleAdultList()` aan.
 
 *Run de Unittests om er zeker van te zijn dat alles nog werkt.*
 
 ## 5 Gebruik van de forEach van de Stream API
-De nieuwe methode `createAdultList()` bevat een for-loop. Vervang deze door gebruik te maken van de `forEach`  
-van de Stream API. 
+De nieuwe methode `createAdultList()` bevat een for-loop. Vervang deze door gebruik te maken van de `forEach` van de Stream API. 
 
 *Run de Unittests om er zeker van te zijn dat alles nog werkt.*
 
@@ -63,8 +57,6 @@ Deze `Predicate` is een gewone variabele en kun je toevoegen als `private` insta
 *Run de Unittests om er zeker van te zijn dat alles nog werkt.*
 
 ## 7 Toevoegen Lambda expressies voor de MALE/FEMALE check
-Gebruik de kennis van onderdeel 6 voor het maken van een `Predicate` die bepaalt of een `Person` `MALE` of `FEMALE` is. Deze is wat lastiger, aangezien je in Oefening 4 de `Gender` als parameter hebt toegevoegd en je daarmee eigenlijk twee parameters (de `Gender` en de `Person`) aan je `Predicate` moet meegeven. Dit staat de Interface van `Predicate` echter niet toe.
-
-Er zijn dan ook verschillende manieren dit op te lossen.
+Gebruik de kennis van onderdeel 6 voor het maken van een `Predicate` die bepaalt of een `Person` `MALE` of `FEMALE` is. Deze is wat lastiger, aangezien je in Oefening 4 de `Gender` als parameter hebt toegevoegd en je daarmee eigenlijk twee parameters (de `Gender` en de `Person`) aan je `Predicate` moet meegeven. Dit staat de Interface van `Predicate` echter niet toe. Er zijn dan ook verschillende manieren dit op te lossen; het is aan jou!
 
 *Run de Unittests om er zeker van te zijn dat alles nog werkt.*
