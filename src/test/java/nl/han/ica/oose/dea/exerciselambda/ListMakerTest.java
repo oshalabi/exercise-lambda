@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-class ListMakerTest {
+public class ListMakerTest {
 
     private ListMaker listMaker;
     private List<Person> persons;
@@ -58,6 +58,7 @@ class ListMakerTest {
         persons.add(person3);
         persons.add(person4);
         persons.add(person5);
+
         // Act
         List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons);
 
@@ -94,17 +95,18 @@ class ListMakerTest {
         Person person2 = PersonBuilder.aPerson().withFirstName("B").withLastName("B").withGender(Gender.MALE).withBirthDate(LocalDate.now().minusYears(33)).build();
         Person person3 = PersonBuilder.aPerson().withFirstName("C").withLastName("C").withGender(Gender.FEMALE).withBirthDate(LocalDate.now().minusYears(10)).build();
         Person person4 = PersonBuilder.aPerson().withFirstName("D").withLastName("D").withGender(Gender.FEMALE).withBirthDate(LocalDate.now().minusYears(13)).build();
-        Person person5 = PersonBuilder.aPerson().withFirstName("E").withLastName("E").withGender(Gender.MALE).withBirthDate(LocalDate.now().minusYears(15)).build();
+        Person person5 = PersonBuilder.aPerson().withFirstName("E").withLastName("E").withGender(Gender.MALE).withBirthDate(LocalDate.now().minusYears(18)).build();
 
         persons.add(person1);
         persons.add(person2);
         persons.add(person3);
         persons.add(person4);
         persons.add(person5);
+
         // Act
         List<Person> maleAdultList = listMaker.createMaleAdultList(persons);
 
         // Assert
-        Assertions.assertEquals(1, maleAdultList.size());
+        Assertions.assertEquals(2, maleAdultList.size());
     }
 }
