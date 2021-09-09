@@ -29,7 +29,7 @@ public class ListMaker {
                 LocalDate now = LocalDate.now();
                 Period age = Period.between(person.getBirthDate(), now);
 
-                if (age.getYears() > 18) {
+                if (age.getYears() >= 18) {
                     filteredMaleAdults.add(person);
                 }
 
@@ -58,7 +58,7 @@ public class ListMaker {
                 LocalDate now = LocalDate.now();
                 Period age = Period.between(person.getBirthDate(), now);
 
-                if (age.getYears() > 18) {
+                if (age.getYears() >= 18) {
                     filteredFemaleAdults.add(person);
                 }
             }
