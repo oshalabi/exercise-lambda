@@ -15,10 +15,8 @@ public class Person {
     }
 
     public boolean isAdult(int adultAge) {
-        LocalDate now = LocalDate.now();
-        Period age = Period.between(getBirthDate(), now);
-
-        return age.getYears() > adultAge;
+        Period age = Period.between(getBirthDate(), LocalDate.now());
+        return age.getYears() >= adultAge;
     }
 
     public String getLastName() {

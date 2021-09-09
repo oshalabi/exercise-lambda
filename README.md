@@ -20,7 +20,7 @@ Run de Unittests om er zeker van te zijn dat alles nog werkt.
 Merk op dat de methodes `createMaleAdultList()` en `createFemaleAdultList()` uit `ListMaker` duplicate code bevatten. 
 Deze code bevat feitelijk twee checks:
 
-* Of een persoon ouder dan 18 is
+* Of een persoon 18 of ouder is
 * Of een persoon MALE/FEMALE is
 
 Creëer voor beide checks een methode die de check uitvoert en roep deze aan vanuit `createMaleAdultList()` 
@@ -48,17 +48,17 @@ van de Stream API.
 
 Run de Unittests om er zeker van te zijn dat alles nog werkt.
 
-## 6 Toevoegen Lambda expressies voor de ouder dan 18 check
+## 6 Toevoegen Lambda expressies voor de 18 of ouder check
 Merk op dat er nu twee checks:
 
-* Of een persoon ouder dan 18 is
+* Of een persoon 18 of ouder is
 * Of een persoon `MALE`/`FEMALE` is
 
 in de body van de `forEach` staan. Dat kan netter worden opgelost. Juist voor deze situatie heeft de Stream API
 de `filter` methode. Deze methode heeft een `Predicate` als parameter, wat een Lambda-expressie is die een `boolean` 
 retourneert. 
 
-In dit onderdeel gaan we een Lambda-expressie maken die checked of een `Person` ouder dan 18 is. Deze passen we vervolgens
+In dit onderdeel gaan we een Lambda-expressie maken die checked of een `Person` 18 of ouder is. Deze passen we vervolgens
 toe als een filter, waarmee we de `forEach` vervangen. Functioneel is het dan nog niet compleet (de tweede check ontbreekt nog) 
 en ook de unittests zullen breken, maar dat wordt in de volgende oefening opgelost.
 
@@ -70,7 +70,7 @@ Creëer een `Predicate` die er als volgt uitziet:
 
 Deze `Predicate` is een gewone variabele en kun je toevoegen als `private` instantievariabele aan de `ListMaker` klasse.
 Verwijder de `forEach` en gebruikt de Stream API met een filter (en de `isAdult` Lambda-expressie) en uiteindelijk de 
-`Collectors.toList()` om een gefilterde lijst te maken die nu enkel `Person`-instanties bevat die ouder zijn dan 18.
+`Collectors.toList()` om een gefilterde lijst te maken die nu enkel `Person`-instanties bevat die 18 of ouder zijn.
 
 ## 7 Toevoegen Lambda expressies voor de MALE/FEMALE check
 Gebruik de kennis van onderdeel 6 voor het maken van een `Predicate` die gebruikt kan worden om te bepalen of een `Person` `MALE`

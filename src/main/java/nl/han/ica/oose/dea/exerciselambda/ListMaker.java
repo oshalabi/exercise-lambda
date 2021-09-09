@@ -12,9 +12,9 @@ public class ListMaker {
 
     private static final int ADULT_AGE = 18;
 
-    private Predicate<Person> isAdult = (person) -> person.isAdult(ADULT_AGE);
-    private Predicate<Person> isMale = (person) -> person.isOfGender(Gender.MALE);
-    private Predicate<Person> isFemale = (person) -> person.isOfGender(Gender.FEMALE);
+    private final Predicate<Person> isAdult = (person) -> person.isAdult(ADULT_AGE);
+    private final Predicate<Person> isMale = (person) -> person.isOfGender(Gender.MALE);
+    private final Predicate<Person> isFemale = (person) -> person.isOfGender(Gender.FEMALE);
 
     /**
      * Create a {@link List} containing only the Persons that are both male and adult.
@@ -36,12 +36,11 @@ public class ListMaker {
         return createAdultList(allPersons, isFemale);
     }
 
-    private List<Person> createAdultList(List<Person> allPersons, Predicate<Person> predicate) {
-
+    private List<Person> createAdultList(List<Person> allPersons, Predicate<Person> byGender) {
         if (allPersons == null) {
             return new ArrayList<>();
         }
 
-        return allPersons.stream().filter(isAdult).filter(predicate).collect(Collectors.toList());
+        return allPersons.stream().filter(isAdult).filter(byGender).collect(Collectors.toList());
     }
 }
