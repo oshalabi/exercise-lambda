@@ -1,7 +1,9 @@
 package nl.han.ica.oose.dea.exerciselambda.person;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
+import java.util.List;
 
 public class Person {
 
@@ -9,6 +11,7 @@ public class Person {
     private String lastName;
     private LocalDate birthDate;
     private Gender gender;
+
 
     public String getLastName() {
         return lastName;
@@ -41,4 +44,6 @@ public class Person {
     public String getFirstName() {
         return firstName;
     }
+
+
 }

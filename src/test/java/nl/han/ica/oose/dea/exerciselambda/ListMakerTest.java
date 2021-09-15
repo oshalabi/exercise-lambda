@@ -15,11 +15,15 @@ class ListMakerTest {
 
     private ListMaker listMaker;
     private List<Person> persons;
+    Gender male = Gender.MALE;
+    Gender female = Gender.FEMALE;
+
 
     @BeforeEach
     void setup() {
         listMaker = new ListMaker();
         persons = new ArrayList<>();
+
     }
 
     @Test
@@ -27,7 +31,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(null);
+        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(null, female);
 
         // Assert
         Assertions.assertEquals(0, femaleMaleAdultList.size());
@@ -38,7 +42,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons);
+        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons, female);
 
         // Assert
         Assertions.assertEquals(0, femaleMaleAdultList.size());
@@ -59,7 +63,7 @@ class ListMakerTest {
         persons.add(person4);
         persons.add(person5);
         // Act
-        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons);
+        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons,female);
 
         // Assert
         Assertions.assertEquals(3, femaleMaleAdultList.size());
@@ -70,7 +74,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(null);
+        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(null, male);
 
         // Assert
         Assertions.assertEquals(0, maleMaleAdultList.size());
@@ -81,7 +85,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(persons);
+        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(persons, male);
 
         // Assert
         Assertions.assertEquals(0, maleMaleAdultList.size());
@@ -102,7 +106,7 @@ class ListMakerTest {
         persons.add(person4);
         persons.add(person5);
         // Act
-        List<Person> maleAdultList = listMaker.createMaleAdultList(persons);
+        List<Person> maleAdultList = listMaker.createMaleAdultList(persons, male);
 
         // Assert
         Assertions.assertEquals(2, maleAdultList.size());

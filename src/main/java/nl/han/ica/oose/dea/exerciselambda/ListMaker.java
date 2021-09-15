@@ -10,33 +10,27 @@ import java.util.List;
 
 public class ListMaker {
 
+    final int ADULT = 18;
+
     /**
      * Create a {@link List} containing only the Persons that are both male and adult.
      *
      * @param allPersons A {@link List} of {@link Person} Objects
      * @return A {@link List} containing only the Persons that are both male and adult
      */
-    public List<Person> createMaleAdultList(List<Person> allPersons) {
+    public List<Person> createMaleAdultList(List<Person> allPersons, Gender gender) {
 
-        if (allPersons == null) {
-            return new ArrayList<>();
+        if(personsNotNull(allPersons)) {
+
+            List<Person> filteredFemaleAdults = new ArrayList<>();
+
+            checkGenderAndAdult(allPersons,
+                    gender,
+                    filteredFemaleAdults);
+
+            return filteredFemaleAdults;
         }
-
-        List<Person> filteredMaleAdults = new ArrayList<>();
-
-        for (Person person : allPersons) {
-            if (person.getGender().equals(Gender.MALE)) {
-                LocalDate now = LocalDate.now();
-                Period age = Period.between(person.getBirthDate(), now);
-
-                if (age.getYears() >= 18) {
-                    filteredMaleAdults.add(person);
-                }
-
-            }
-        }
-
-        return filteredMaleAdults;
+        return new ArrayList<>();
     }
 
     /**
@@ -45,27 +39,37 @@ public class ListMaker {
      * @param allPersons A {@link List} of {@link Person} Objects
      * @return A {@link List} containing only the Persons that are both female and adult
      */
-    public List<Person> createFemaleAdultList(List<Person> allPersons) {
+    public List<Person> createFemaleAdultList(List<Person> allPersons, Gender gender) {
 
-        if (allPersons == null) {
-            return new ArrayList<>();
+        if (personsNotNull(allPersons)) {
+
+            List<Person> filteredFemaleAdults = new ArrayList<>();
+
+            checkGenderAndAdult(allPersons,
+                    gender,
+                    filteredFemaleAdults);
+
+            return filteredFemaleAdults;
         }
+        return new ArrayList<>();
+    }
 
-        List<Person> filteredFemaleAdults = new ArrayList<>();
-
+    private void checkGenderAndAdult(List<Person> allPersons, Gender gender, List<Person> filteredGenderAdults ) {
         for (Person person : allPersons) {
-            if (person.getGender().equals(Gender.FEMALE)) {
+            if (person.getGender().equals(gender)) {
                 LocalDate now = LocalDate.now();
                 Period age = Period.between(person.getBirthDate(), now);
 
-                if (age.getYears() >= 18) {
-                    filteredFemaleAdults.add(person);
+                if (age.getYears() >= ADULT) {
+                    filteredGenderAdults.add(person);
                 }
             }
         }
-
-
-        return filteredFemaleAdults;
     }
-
+    private boolean personsNotNull(List<Person> allPersons){
+        if (allPersons == null) {
+            return false;
+        }
+        return true;
+    }
 }
