@@ -2,15 +2,20 @@ package nl.han.ica.oose.dea.exerciselambda;
 
 import nl.han.ica.oose.dea.exerciselambda.person.Gender;
 import nl.han.ica.oose.dea.exerciselambda.person.Person;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ListMaker {
 
-    final int ADULT = 18;
+    private Predicate<Person> isAdult = (person -> person.getIsAdult(person));
+    private Predicate<Person> isMale = (person -> person.isOfGender(Gender.MALE));
+    private Predicate<Person> isFemale =(person -> person.isOfGender(Gender.FEMALE));
 
     /**
      * Create a {@link List} containing only the Persons that are both male and adult.
@@ -18,19 +23,9 @@ public class ListMaker {
      * @param allPersons A {@link List} of {@link Person} Objects
      * @return A {@link List} containing only the Persons that are both male and adult
      */
-    public List<Person> createMaleAdultList(List<Person> allPersons, Gender gender) {
+    public List<Person> createMaleAdultList(List<Person> allPersons) {
 
-        if(personsNotNull(allPersons)) {
-
-            List<Person> filteredFemaleAdults = new ArrayList<>();
-
-            checkGenderAndAdult(allPersons,
-                    gender,
-                    filteredFemaleAdults);
-
-            return filteredFemaleAdults;
-        }
-        return new ArrayList<>();
+        return makeAdultList(allPersons, isMale);
     }
 
     /**
@@ -39,37 +34,18 @@ public class ListMaker {
      * @param allPersons A {@link List} of {@link Person} Objects
      * @return A {@link List} containing only the Persons that are both female and adult
      */
-    public List<Person> createFemaleAdultList(List<Person> allPersons, Gender gender) {
+    public List<Person> createFemaleAdultList(List<Person> allPersons) {
 
-        if (personsNotNull(allPersons)) {
-
-            List<Person> filteredFemaleAdults = new ArrayList<>();
-
-            checkGenderAndAdult(allPersons,
-                    gender,
-                    filteredFemaleAdults);
-
-            return filteredFemaleAdults;
-        }
-        return new ArrayList<>();
+        return makeAdultList(allPersons, isFemale);
     }
 
-    private void checkGenderAndAdult(List<Person> allPersons, Gender gender, List<Person> filteredGenderAdults ) {
-        for (Person person : allPersons) {
-            if (person.getGender().equals(gender)) {
-                LocalDate now = LocalDate.now();
-                Period age = Period.between(person.getBirthDate(), now);
-
-                if (age.getYears() >= ADULT) {
-                    filteredGenderAdults.add(person);
-                }
-            }
-        }
-    }
-    private boolean personsNotNull(List<Person> allPersons){
+    @NotNull
+    private List<Person> makeAdultList(List<Person> allPersons, Predicate<Person> isBijGender) {
         if (allPersons == null) {
-            return false;
-        }
-        return true;
+
+            return new ArrayList<>();
+         }
+        return allPersons.stream().filter(isAdult).filter(isBijGender).collect(Collectors.toList());
     }
+
 }

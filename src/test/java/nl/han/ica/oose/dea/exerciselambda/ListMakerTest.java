@@ -15,9 +15,6 @@ class ListMakerTest {
 
     private ListMaker listMaker;
     private List<Person> persons;
-    Gender male = Gender.MALE;
-    Gender female = Gender.FEMALE;
-
 
     @BeforeEach
     void setup() {
@@ -31,7 +28,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(null, female);
+        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(null);
 
         // Assert
         Assertions.assertEquals(0, femaleMaleAdultList.size());
@@ -42,7 +39,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons, female);
+        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons);
 
         // Assert
         Assertions.assertEquals(0, femaleMaleAdultList.size());
@@ -63,7 +60,7 @@ class ListMakerTest {
         persons.add(person4);
         persons.add(person5);
         // Act
-        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons,female);
+        List<Person> femaleMaleAdultList = listMaker.createFemaleAdultList(persons);
 
         // Assert
         Assertions.assertEquals(3, femaleMaleAdultList.size());
@@ -74,7 +71,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(null, male);
+        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(null);
 
         // Assert
         Assertions.assertEquals(0, maleMaleAdultList.size());
@@ -85,7 +82,7 @@ class ListMakerTest {
         // Arrange
 
         // Act
-        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(persons, male);
+        List<Person> maleMaleAdultList = listMaker.createMaleAdultList(persons);
 
         // Assert
         Assertions.assertEquals(0, maleMaleAdultList.size());
@@ -106,7 +103,7 @@ class ListMakerTest {
         persons.add(person4);
         persons.add(person5);
         // Act
-        List<Person> maleAdultList = listMaker.createMaleAdultList(persons, male);
+        List<Person> maleAdultList = listMaker.createMaleAdultList(persons);
 
         // Assert
         Assertions.assertEquals(2, maleAdultList.size());

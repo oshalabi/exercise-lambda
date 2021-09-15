@@ -11,6 +11,7 @@ public class Person {
     private String lastName;
     private LocalDate birthDate;
     private Gender gender;
+    final static int ADULT = 18;
 
 
     public String getLastName() {
@@ -45,5 +46,16 @@ public class Person {
         return firstName;
     }
 
+    public boolean isOfGender(Gender gender) {
+        return gender.equals(getGender());
+    }
 
+    private boolean isAdult (Person person) {
+        LocalDate now = LocalDate.now();
+        Period age = Period.between(person.getBirthDate(), now);
+        return age.getYears() >= ADULT;
+    }
+    public boolean getIsAdult(Person person){
+        return isAdult(person);
+    }
 }
